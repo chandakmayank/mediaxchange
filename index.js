@@ -8,7 +8,7 @@ http.createServer(function(req, res) {
   if (req.url == '/upload' && req.method.toLowerCase() == 'post') {
     // parse a file upload
     var form = new formidable.IncomingForm();
-    form.uploadDir = "/Users/chandakmayank/Desktop/swati recharge ki dukaan/uploads";
+    form.uploadDir = "/home/pi/uploads";
     form.multiples = true;
 
     form.keepExtensions = true;
