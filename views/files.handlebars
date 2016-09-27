@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Required meta tags-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#2196f3">
+  <!-- Your app title -->
+  <title>My App</title>
+  <!-- Path to Framework7 Library CSS, Material Theme -->
+  <link rel="stylesheet" href="css/framework7.material.min.css">
+  <!-- Path to Framework7 color related styles, Material Theme -->
+  <link rel="stylesheet" href="css/framework7.material.colors.min.css">
+  <!-- Path to your custom app styles-->
+  <link rel="stylesheet" href="css/my-app.css">
+</head>
+<body>
+  <!-- Status bar overlay for fullscreen mode-->
+  <div class="statusbar-overlay"></div><!-- Panels overlay-->
+  <div class="panel-overlay"></div><!-- Left panel with reveal effect-->
+  <div class="panel panel-left panel-reveal">
+    <div class="content-block">
+      <p>
+        Learn more about Phone ki Dukaan
+      </p>
+      <div class="list-block">
+        <ul>
+          <li>
+            <a href="/about" class="item-link">
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">
+                    About
+                  </div>
+                </div>
+              </div>
+            </a></li>
+            <li>
+              <a href="/" class="item-link">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title">
+                      Home
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Right panel with cover effect-->
+    <div class="panel panel-right panel-cover">
+      <div class="content-block">
+        <p>
+          Learn more about Phone ki Dukaan
+        </p>
+        <div class="list-block">
+          <ul>
+            <li>
+              <a href="about.html" class="item-link"></a>
+              <div class="item-content">
+                <div class="item-inner">
+                  <div class="item-title">
+                    About
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Views-->
+    <div class="views">
+      <!-- Your main view, should have "view-main" class-->
+      <div class="view view-main">
+
+
+        <!-- Top Navbar-->
+        <div class="navbar">
+          <div class="navbar-inner">
+            <!-- We have home navbar without left link-->
+            <div class="left">
+              <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel">
+              <i class="icon icon-bars"></i></a>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages navbar-through toolbar-through">
+          <!-- Page, data-page contains page name-->
+          <div data-page="list" class="page">
+            <!-- Scrollable page content-->
+            <div class="page-content">
+
+              <div class="content-block-title">Separate Collapsibles</div>
+              <div class="content-block">
+                <p>Thank you for uploading media. Now play from the khirkee community library</p>
+              </div>              
+              <div class="list-block">
+                <ul>
+                  
+                        {{#each children}}
+
+                  <li class="accordion-item"><a href="#" class="item-content item-link">
+                    <div class="item-inner">
+                      <div class="item-title"><b>{{name}}</b></div>
+                    </div></a>
+                    <div class="accordion-item-content">
+                      <div class="content-block">
+                        {{#each children}}
+                        <div class="item-inner">
+                          <a href="/queue?q={{name}}"><div class="item-title">{{name}}</div></a>
+                        </div>
+                        {{/each}}
+
+                      </div>
+                    </div>
+                  </li>
+                  {{/each}}
+
+
+                </ul>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/my-app.js"></script>
+  </body>
+
+  </html> 

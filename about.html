@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Required meta tags-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#2196f3">
+  <!-- Your app title -->
+  <title>My App</title>
+  <!-- Path to Framework7 Library CSS, Material Theme -->
+  <link rel="stylesheet" href="css/framework7.material.min.css">
+  <!-- Path to Framework7 color related styles, Material Theme -->
+  <link rel="stylesheet" href="css/framework7.material.colors.min.css">
+  <!-- Path to your custom app styles-->
+  <link rel="stylesheet" href="css/my-app.css">
+</head>
+<body>
+  <!-- Status bar overlay for fullscreen mode-->
+  <div class="statusbar-overlay"></div>
+  <!-- Panels overlay-->
+  <div class="panel-overlay"></div>
+  <!-- Left panel with reveal effect-->
+  <div class="panel panel-left panel-reveal">
+    <div class="content-block">
+      <p>Welcome to Phone ki Dukaan</p>
+      <div class="list-block">
+        <ul>
+          <li><a href="/about" class="item-link">
+            <div class="item-content">
+              <div class="item-inner"> 
+                <div class="item-title">About</div>
+              </div>
+            </div>
+          </a></li>
+          <li><a href="./" class="item-link">
+            <div class="item-content">
+              <div class="item-inner"> 
+                <div class="item-title">Home</div>
+              </div>
+            </div>
+          </a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- Right panel with cover effect-->
+  <div class="panel panel-right panel-cover">
+    <div class="content-block">
+      <p>Right panel content goes here</p>
+    </div>
+  </div>
+  <!-- Views-->
+  <div class="views">
+    <!-- Your main view, should have "view-main" class-->
+    <div class="view view-main">
+      <!-- Top Navbar-->
+      <div class="navbar">
+        <div class="navbar-inner">
+          <!-- We have home navbar without left link-->
+          <div class="left">
+            <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel">
+            <i class="icon icon-bars"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+      <div class="pages navbar-through toolbar-through">
+        <!-- Page, data-page contains page name-->
+        <div data-page="about" class="page">
+          <!-- Scrollable page content-->
+          <div class="page-content">
+            <div class="content-block-title">Welcome To Phone ki Dukaan</div>
+            <div class="content-block">
+              <div class="content-block-inner">
+                <h2>Phone Recharge ki Dukaan</h2>
+                <p>Over the duration of the Coriolis Effects residency, Swati set up a phone recharge shop in Khirkee Extension. Through this studio in the street, she has been experimenting with informal modes of media sharing in the community. Typically, the ubiquitous phone recharge stores also provide media downloads on mobile phones at 5 to 10 Rs for a movie or several megabytes of songs and video clips. At her shop, through a barter system of media content, she has been co-curating a multi-cultural archive of songs, movies and video clips with her ‘customers’. </p>
+                <p>Her intervention in Khirkee’s micro-economy created a media hub for the migrant communities from different Indian states, African nations and Afghanistan. From Bollywood films to ‘Madrasi’ films, from Bangla to Naija music, from ‘bewafa’ to ‘bhakti’ songs, from Bidayesi Bhojpuri  music to its Jahaji Caribbean counterpart – a cultural mash-up evolved, which she played and projected across her street. </p>
+                <p>From the 29th September to 3rd October (closed on 2nd October), this digital archive has been transferred to Khoj and from 7pm to 9pm on these days, it will occupy the spaces within and outside Khoj through audio-visual projections. Through your mobile phones, you can explore and interact with this archive set up as a local area network designed by Mayank Chandak. This media exchange has been created through the low-cost, credit card sized computer Raspberry Pi which you can see on the upper floor at Khoj. Just follow the 3 simple steps on the colourful China made electronic items that Swati has hung all around Khoj to talk of the creative amalgamation of OTG devices that takes place at phone recharge shops. </p>
+                <p>Follow <a href="https://www.facebook.com/Phone-recharge-ki-Dukaan-268676883526085/">[Phone Recharge ki Dukaan]</a> on Facebook</p>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/my-app.js"></script>
+  </body>
+
+  </html> 

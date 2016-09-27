@@ -1,37 +1,82 @@
-var formidable = require('formidable'),
-    http = require('http'),
-    util = require('util');
+var express = require('express');
+var app = express();
+var formidable = require('express-formidable');
+// var dir = require('node-dir');
+var jsonfile = require('jsonfile');
+
+
+var filesjson = require('./files.json');
+
+
+var exphbs  = require('express-handlebars');
+
+
+
+var dirToJson = require('dir-to-json');
+
+
+var file = 'files.json';
+
+// If you prefer, you can also use promises 
+dirToJson( "./uploads" )
+.then( function( dirTree ){
+	// console.log( dirTree );
+	jsonfile.writeFile(file, dirTree, function(err) {
+		console.error(err)
+	});
+	console.warn(JSON.parse(dirTree));
+})
+.catch( function( err ){
+	throw err;
+});
+
+
 
 var filename;
 
-http.createServer(function(req, res) {
-  if (req.url == '/upload' && req.method.toLowerCase() == 'post') {
-    // parse a file upload
-    var form = new formidable.IncomingForm();
-    form.uploadDir = "/home/pi/uploads";
-    form.multiples = true;
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
+app.use(express.static('static'));
 
-    form.keepExtensions = true;
-    form.parse(req, function(err, fields, files) {
-      res.writeHead(200, {'content-type': 'text/plain'});
-      res.write('received upload:\n\n');
-      res.end(util.inspect({fields: fields, files: files}));
-      // filename= files.upload.name.toString();
-      // console.warn(filename);
-    });
 
-    return;
-  }
 
-  // show a file upload form
-  res.writeHead(200, {'content-type': 'text/html'});
-  res.end(
-    '<form action="/upload" enctype="multipart/form-data" method="post">'+
-    '<input type="text" name="title"> <br>'+
-    // '<input type="file" name="upload" accept="image/*"><br>'+
-    '<input type="file" name="upload" multiple="multiple" accept="*" >'+
-    '<input type="submit" value="Upload">'+
 
-    '</form>'
-  );
-}).listen(80);
+app.get('/', function (req, res) {
+	res.sendfile('index.html');
+});
+
+
+app.get('/about', function (req, res) {
+	res.sendfile('about.html');
+});
+
+app.get('/list', function (req, res) {
+	// res.sendfile('files.html');
+
+    res.render('files',filesjson);
+});
+
+app.get('/queue' ,function(req,res){
+	console.warn('pplay this file ' + req.query.q);
+	res.redirect('/list');
+
+});
+
+
+app.use(formidable.parse({
+	'uploadDir':'uploads',
+	'keepExtensions': true
+}));
+
+
+app.post('/upload', function (req, res) {
+	console.warn(req.body);
+	res.redirect('/list');
+
+});
+
+
+
+app.listen(3000, function () {
+	console.log('Phone Dukaan app listening on port 3000!');
+});

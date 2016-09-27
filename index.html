@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- Color theme for statusbar -->
+    <meta name="theme-color" content="#2196f3"><!-- Your app title -->
+    <title>
+        My App
+    </title><!-- Path to Framework7 Library CSS, Material Theme -->
+    <link rel="stylesheet" href="css/framework7.material.min.css" type="text/css"><!-- Path to Framework7 color related styles, Material Theme -->
+    <link rel="stylesheet" href="css/framework7.material.colors.min.css" type="text/css"><!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/my-app.css" type="text/css">
+</head>
+<body>
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar-overlay"></div><!-- Panels overlay-->
+    <div class="panel-overlay"></div><!-- Left panel with reveal effect-->
+    <div class="panel panel-left panel-reveal">
+        <div class="content-block">
+            <p>
+                Learn more about Phone ki Dukaan
+            </p>
+            <div class="list-block">
+                <ul>
+                    <li>
+                        <a href="/about" class="item-link">
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title">
+                                        About
+                                    </div>
+                                </div>
+                            </div>
+                        </a></li>
+                        <li>
+                            <a href="/" class="item-link">
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">
+                                            Home
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div><!-- Right panel with cover effect-->
+        <div class="panel panel-right panel-cover">
+            <div class="content-block">
+                <p>
+                    Learn more about Phone ki Dukaan
+                </p>
+                <div class="list-block">
+                    <ul>
+                        <li>
+                            <a href="about.html" class="item-link"></a>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title">
+                                        About
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Views-->
+        <div class="views">
+            <!-- Your main view, should have "view-main" class-->
+            <div class="view view-main">
+
+                <!-- Top Navbar-->
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <!-- We have home navbar without left link-->
+                        <div class="left">
+                            <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel">
+                            <i class="icon icon-bars"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+            <div class="pages navbar-through toolbar-through">
+                <!-- Page, data-page contains page name-->
+                <div data-page="index" class="page">
+                    <!-- Scrollable page content-->
+                    <div class="page-content">
+                        <div class="content-block-title">
+                            Welcome To My Awesome App
+                        </div>
+                        <div class="content-block">
+                            <div class="content-block-inner">
+                                <p>
+                                    <img src="/img/cell_tower-512.png" style="width:40%;">
+                                </p>
+                            </div>
+                        </div>
+                        <div class="list-block"></div>
+                        <div class="content-block" style="text-align:center;">
+                            <form action="/upload" enctype="multipart/form-data" method="post">
+                                <input type="file" name="upload" multiple="multiple"><br><br>
+                                <input type="submit" value="Upload" class="button button-big button-round active button-fill">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="js/framework7.min.js">
+</script><!-- Path to your app js-->
+<script type="text/javascript" src="js/my-app.js">
+</script>
+</body>
+</html>
