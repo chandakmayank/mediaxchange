@@ -17,7 +17,7 @@ var dirToJson = require('dir-to-json');
 
 var file = 'files.json';
 
-// If you prefer, you can also use promises 
+// If you prefer, you can also use promises
 dirToJson( "./uploads" )
 .then( function( dirTree ){
 	// console.log( dirTree );
@@ -77,6 +77,6 @@ app.post('/upload', function (req, res) {
 
 
 
-app.listen(3000, function () {
-	console.log('Phone Dukaan app listening on port 3000!');
+app.listen(80, function () {
+	console.log('Phone Dukaan app listening on port 80!');
 });
