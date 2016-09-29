@@ -45,7 +45,7 @@ app.get('/list', function (req, res) {
 });
 
 app.get('/queue' ,function(req,res){
-	var path = '/uploads/Khirki Library'+req.query.q;
+	var path = '/uploads/Khirki Library/'+req.query.q;
 	console.warn(path);
 	player.newSource(path, 'hdmi');
 	res.redirect('/list');
