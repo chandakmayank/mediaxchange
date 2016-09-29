@@ -11,19 +11,19 @@ app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 app.use(express.static('static'));
 
-var filetree = './files.json';
+var filetree = './filess.json';
 
 // If you prefer, you can also use promises
-dirToJson( "./uploads/Khirki Library" )
-.then( function( dirTree ){
-	console.log( dirTree );
-	jsonfile.writeFile(filetree, dirTree, function(err) {
-		console.error(err);
-	});
-})
-.catch( function( err ){
-	throw err;
-});
+// dirToJson( "./uploads/Khirki Library" )
+// .then( function( dirTree ){
+// 	console.log( dirTree );
+// 	jsonfile.writeFile(filetree, dirTree, function(err) {
+// 		console.error(err);
+// 	});
+// })
+// .catch( function( err ){
+// 	throw err;
+// });
 
 
 app.get('/', function (req, res) {
@@ -41,7 +41,7 @@ app.get('/list', function (req, res) {
 });
 
 app.get('/queue' ,function(req,res){
-	console.warn('play this file ' + req.query.q);
+	console.warn('play this file ' + '/uploads/Khirki Library' +req.query.q);
 	res.redirect('/list');
 
 });
