@@ -5,6 +5,10 @@ var jsonfile = require('jsonfile');
 var dirToJson = require('dir-to-json');
 var exphbs  = require('express-handlebars');
 var Sound = require('node-mpg123');
+var Omx = require('node-omxplayer');
+
+
+var player = Omx();
 
 
 app.engine('handlebars', exphbs());
@@ -41,7 +45,9 @@ app.get('/list', function (req, res) {
 });
 
 app.get('/queue' ,function(req,res){
-	console.warn('play this file ' + '/uploads/Khirki Library' +req.query.q);
+	var path = '/uploads/Khirki Library'+req.query.q;
+	console.warn(path);
+	player.newSource(path, 'hdmi');
 	res.redirect('/list');
 
 });
