@@ -22,9 +22,6 @@
   <div class="panel-overlay"></div><!-- Left panel with reveal effect-->
   <div class="panel panel-left panel-reveal">
     <div class="content-block">
-      <p>
-        Learn more about Phone ki Dukaan
-      </p>
       <div class="list-block">
         <ul>
           <li>
@@ -38,11 +35,23 @@
               </div>
             </a></li>
             <li>
+              <a href="/hindi" class="item-link">
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title">
+                      जानकारी
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </li>
+
+            <li>
               <a href="/" class="item-link">
                 <div class="item-content">
                   <div class="item-inner">
                     <div class="item-title">
-                      Home
+                      Upload / अपलोड
                     </div>
                   </div>
                 </div>
@@ -100,25 +109,35 @@
             <!-- Scrollable page content-->
             <div class="page-content">
 
-              <div class="content-block-title">Separate Collapsibles</div>
+              <div class="content-block-title">All the Music and Movies</div>
               <div class="content-block">
-                <p>Thank you for uploading media. Now play from the khirkee community library</p>
+                <p>Thank you for uploading media. Now play anything from the khirkee community library. Look for projector screen inside/outside KHOJ STUDIO, Khirkee</p>
+                <p>Choose any media to play now ---</p>
               </div>              
               <div class="list-block">
                 <ul>
-                  
-                        {{#each children}}
 
+                  {{#each children}}
                   <li class="accordion-item"><a href="#" class="item-content item-link">
                     <div class="item-inner">
                       <div class="item-title"><b>{{name}}</b></div>
                     </div></a>
                     <div class="accordion-item-content">
                       <div class="content-block">
+
                         {{#each children}}
+
+                        {{#if children}}
+                        <h4>{{name}}</h4>
+                          {{#each children}}
+                          <a href="/queue?q={{path}}"><div class="item-title">&nbsp;{{name}}</div></a>
+                          {{/each}}
+                        {{else}}
                         <div class="item-inner">
                           <a href="/queue?q={{path}}"><div class="item-title">{{name}}</div></a>
                         </div>
+                        {{/if}}
+
                         {{/each}}
 
                       </div>
