@@ -4,7 +4,7 @@ var formidable = require('express-formidable');
 var jsonfile = require('jsonfile');
 var dirToJson = require('dir-to-json');
 var exphbs  = require('express-handlebars');
-var Sound = require('mpg123');
+var Sound = require('node-mpg123');
 
 
 
