@@ -8,7 +8,7 @@ var Sound = require('mpg123');
 
 
 
-var filesjson = require('./files.json');
+var filetree = require('./files.json');
 
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
@@ -19,7 +19,7 @@ app.use(express.static('static'));
 dirToJson( "./uploads" )
 .then( function( dirTree ){
 	// console.log( dirTree );
-	jsonfile.writeFile(file, dirTree, function(err) {
+	jsonfile.writeFile(filetree, dirTree, function(err) {
 		console.error(err)
 	});
 	console.warn(JSON.parse(dirTree));
@@ -41,7 +41,7 @@ app.get('/about', function (req, res) {
 app.get('/list', function (req, res) {
 	// res.sendfile('files.html');
 
-    res.render('files',filesjson);
+    res.render('files',filetree);
 });
 
 app.get('/queue' ,function(req,res){
