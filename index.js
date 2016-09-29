@@ -7,13 +7,11 @@ var exphbs  = require('express-handlebars');
 var Sound = require('node-mpg123');
 
 
-
-var filetree = './files.json';
-
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 app.use(express.static('static'));
 
+var filetree = './files.json';
 
 // If you prefer, you can also use promises
 dirToJson( "./uploads/Khirki Library" )
@@ -38,9 +36,8 @@ app.get('/about', function (req, res) {
 });
 
 app.get('/list', function (req, res) {
-	// res.sendfile('files.html');
-
-    res.render('files',filetree);
+    var treeobj = jsonfile.readFileSync(filetree);
+    res.render('files',treeobj);
 });
 
 app.get('/queue' ,function(req,res){
