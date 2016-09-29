@@ -1,21 +1,19 @@
 var express = require('express');
 var app = express();
 var formidable = require('express-formidable');
-// var dir = require('node-dir');
 var jsonfile = require('jsonfile');
+var dirToJson = require('dir-to-json');
+var exphbs  = require('express-handlebars');
+var Sound = require('mpg123');
+
 
 
 var filesjson = require('./files.json');
 
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
+app.use(express.static('static'));
 
-var exphbs  = require('express-handlebars');
-
-
-
-var dirToJson = require('dir-to-json');
-
-
-var file = 'files.json';
 
 // If you prefer, you can also use promises
 dirToJson( "./uploads" )
@@ -29,16 +27,6 @@ dirToJson( "./uploads" )
 .catch( function( err ){
 	throw err;
 });
-
-
-
-var filename;
-
-app.engine('handlebars', exphbs());
-app.set('view engine', 'handlebars');
-app.use(express.static('static'));
-
-
 
 
 app.get('/', function (req, res) {
@@ -57,14 +45,14 @@ app.get('/list', function (req, res) {
 });
 
 app.get('/queue' ,function(req,res){
-	console.warn('pplay this file ' + req.query.q);
+	console.warn('play this file ' + req.query.q);
 	res.redirect('/list');
 
 });
 
 
 app.use(formidable.parse({
-	'uploadDir':'uploads',
+	'uploadDir':'files',
 	'keepExtensions': true
 }));
 
