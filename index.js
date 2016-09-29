@@ -8,7 +8,7 @@ var Sound = require('node-mpg123');
 
 
 
-var filetree = require('./files.json');
+var filetree = './files.json';
 
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
@@ -18,9 +18,9 @@ app.use(express.static('static'));
 // If you prefer, you can also use promises
 dirToJson( "./uploads/Khirki Library" )
 .then( function( dirTree ){
-	// console.log( dirTree );
-	jsonfile.writeFileSyn(filetree, dirTree, function(err) {
-		console.error(err)
+	console.log( dirTree );
+	jsonfile.writeFile(filetree, dirTree, function(err) {
+		console.error(err);
 	});
 })
 .catch( function( err ){
@@ -64,6 +64,6 @@ app.post('/upload', function (req, res) {
 
 
 
-app.listen(80, function () {
+app.listen(3000, function () {
 	console.log('Phone Dukaan app listening on port 80!');
 });
