@@ -16,13 +16,12 @@ app.use(express.static('static'));
 
 
 // If you prefer, you can also use promises
-dirToJson( "./uploads" )
+dirToJson( "./uploads/Khirki Library" )
 .then( function( dirTree ){
 	// console.log( dirTree );
-	jsonfile.writeFile(filetree, dirTree, function(err) {
+	jsonfile.writeFileSyn(filetree, dirTree, function(err) {
 		console.error(err)
 	});
-	console.warn(JSON.parse(dirTree));
 })
 .catch( function( err ){
 	throw err;
