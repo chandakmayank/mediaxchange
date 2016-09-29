@@ -11,7 +11,7 @@ app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 app.use(express.static('static'));
 
-var filetree = './filess.json';
+var filetree = './files.json';
 
 // If you prefer, you can also use promises
 // dirToJson( "./uploads/Khirki Library" )
