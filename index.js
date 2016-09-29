@@ -4,11 +4,12 @@ var formidable = require('express-formidable');
 var jsonfile = require('jsonfile');
 var dirToJson = require('dir-to-json');
 var exphbs  = require('express-handlebars');
-var Sound = require('node-mpg123');
-var Omx = require('node-omxplayer');
+// var Mpg = require('mpg123');
+// var Omx = require('node-omxplayer');
 
 
-var player = Omx();
+// var player = Omx();
+// var musicplayer = new Mpg();
 
 
 app.engine('handlebars', exphbs());
@@ -40,18 +41,41 @@ app.get('/about', function (req, res) {
 });
 
 app.get('/list', function (req, res) {
-    var treeobj = jsonfile.readFileSync(filetree);
-    res.render('files',treeobj);
+	var treeobj = jsonfile.readFileSync(filetree);
+	res.render('files',treeobj);
 });
 
 app.get('/queue' ,function(req,res){
 	var path = '/uploads/Khirki Library/'+req.query.q;
 	console.warn(path);
-	player.newSource(path, 'hdmi');
-	res.redirect('/list');
+	var isMovie = path.match(/\.(mp4|flv|mkv)$/g);
+	var isMusic = path.match(/\.(mp3)$/g);
+	if(isMovie !=null){
+		console.warn('found movie');
+		// player.newSource(path, 'hdmi');
+		// res.redirect('/thanks');
+
+	}
+	else if(isMusic !=null){
+		console.warn('found music');
+		// musicplayer.play(path)
+		// res.redirect('/thanks');
+	}
+	else{
+		console.warn('found nothing');
+		// res.redirect('/sorry');
+	}
 
 });
 
+app.get('/thanks',function(req,res){
+
+});
+
+
+app.get('/sorry',function(req,res){
+
+});
 
 app.use(formidable.parse({
 	'uploadDir':'files',
