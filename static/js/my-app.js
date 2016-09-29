@@ -7,7 +7,9 @@ var $$ = Dom7;
 // Add view
 var mainView = myApp.addView('.view-main', {
     // Because we use fixed-through navbar we can enable dynamic navbar
-    dynamicNavbar: true
+    dynamicNavbar: true,
+    domCache: true //enable inline pages
+
 });
 
 // Callbacks to run specific code for specific pages, for example for About page:
@@ -43,6 +45,6 @@ function createContentPage() {
         '    </div>' +
         '  </div>' +
         '</div>'
-    );
-	return;
+        );
+return;
 }
