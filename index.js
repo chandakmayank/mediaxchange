@@ -4,12 +4,12 @@ var formidable = require('express-formidable');
 var jsonfile = require('jsonfile');
 var dirToJson = require('dir-to-json');
 var exphbs  = require('express-handlebars');
-// var Mpg = require('mpg123');
-// var Omx = require('node-omxplayer');
+var Mpg = require('mpg123');
+var Omx = require('node-omxplayer');
 
 
-// var player = Omx();
-// var musicplayer = new Mpg();
+var player = Omx();
+var musicplayer = new Mpg();
 
 
 app.engine('handlebars', exphbs());
@@ -40,41 +40,45 @@ app.get('/about', function (req, res) {
 	res.sendfile('about.html');
 });
 
+app.get('/hindi', function (req, res) {
+	res.sendfile('about_hindi.html');
+});
+
 app.get('/list', function (req, res) {
 	var treeobj = jsonfile.readFileSync(filetree);
 	res.render('files',treeobj);
 });
 
 app.get('/queue' ,function(req,res){
-	var path = '/uploads/Khirki Library/'+req.query.q;
+	var path = '/home/pi/mediaxchange/uploads/Khirki Library/'+req.query.q;
 	console.warn(path);
 	var isMovie = path.match(/\.(mp4|flv|mkv)$/g);
 	var isMusic = path.match(/\.(mp3)$/g);
 	if(isMovie !=null){
 		console.warn('found movie');
-		// player.newSource(path, 'hdmi');
-		// res.redirect('/thanks');
+		player.newSource(path, 'hdmi');
+		res.redirect('/thanks');
 
 	}
 	else if(isMusic !=null){
 		console.warn('found music');
-		// musicplayer.play(path)
-		// res.redirect('/thanks');
+		musicplayer.play(path)
+		res.redirect('/thanks');
 	}
 	else{
 		console.warn('found nothing');
-		// res.redirect('/sorry');
+		res.redirect('/sorry');
 	}
 
 });
 
 app.get('/thanks',function(req,res){
-
+	res.sendfile('thanks.html');
 });
 
 
 app.get('/sorry',function(req,res){
-
+	res.sendfile('sorry.html');
 });
 
 app.use(formidable.parse({
